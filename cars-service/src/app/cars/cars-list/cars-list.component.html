@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <table class="cs-table table table-striped">
+      <table *ngIf="cars.length > 0; else noCarsIfno" class="cs-table table table-striped">
         <thead>
           <th>car</th>
           <th>plate</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let car of cars; let i = index">
-            <td>{{ car.model }}</td>
+            <td [ngClass]="{'row-error': car.isFullyDamaged}">{{ car.model }}</td>
             <td>{{ car.plate }}</td>
             <td>{{ car.deliveryDate }}</td>
             <td>{{ car.deadline }}</td>
@@ -23,6 +23,11 @@
         </tr>
         </tbody>
       </table>
+      <ng-template #noCarsIfno>
+        <div class="no-cars-info">
+          <p>Currently no cars in service</p>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
