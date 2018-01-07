@@ -55,10 +55,18 @@
       "config": "./karma.conf.js"
     }
   },
+  "directive":{
+    "spec": false
+  },
+
   "defaults": {
     "styleExt": "css",
     "component": {
       "spec": false
     }
+  },
+
+  "service":{
+      "spec": false
   }
 }

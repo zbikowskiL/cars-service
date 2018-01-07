@@ -1,12 +1,17 @@
-import {Client} from './client';
+// import {Client} from './client';
 
 export interface Car {
         id: number;
         model: string;
+        type: string;
         plate: string;
         deliveryDate: string;
         deadline: string;
-        client: Client;
+        color: string;
+        power: number;
+        // client: Client;
+        clientFirstName: string;
+        clientSurname: string;
         cost: number;
         isFullyDamaged: boolean;
 }

@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CarsModule } from './cars/cars.module';
+import { CarsService } from './cars/cars.service';
+import { CoreModule } from './core-module/core.module';
+
 
 
 @NgModule({
@@ -16,9 +19,10 @@ import { CarsModule } from './cars/cars.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CarsModule
+    CarsModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
