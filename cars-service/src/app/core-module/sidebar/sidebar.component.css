@@ -1,0 +1,38 @@
+
+.sidebar{
+  width: 180px;
+  background: #0b267c;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar .logo{
+  margin: 30px auto;
+  width: 120px;
+  display: block;
+}
+
+.sidebar ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.sidebar ul li:hover{
+  background: #1363b9;
+  transition: linear 300ms;
+}
+
+.sidebar ul li.active{
+  background: #1363b9;
+
+}
