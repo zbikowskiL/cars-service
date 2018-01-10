@@ -1,10 +1,10 @@
 <cs-header>
-    <p levels>cars</p>
+  <p levels>cars</p>
 
-    <div content>
-      <p>List of cars in service</p>
-    </div>
-  </cs-header>
+  <div content>
+    <p>List of cars in service</p>
+  </div>
+</cs-header>
 
 <div class="container">
   <div class="row">
@@ -28,7 +28,7 @@
             <td>{{ car?.clientFirstName }} {{ car.clientSurname }}</td>
             <td>{{ car?.cost }}</td>
             <td>ACTION PLACEHOLDER</td>
-        </tr>
+          </tr>
         </tbody>
       </table>
       <ng-template #noCarsIfno>
@@ -40,14 +40,14 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-        <button  (click)="showGross()"  class="btn btn-primary btn-sm float-right">
-            Show Gross (Brutto)
-        </button>
+      <button (click)="showGross()" class="btn btn-primary btn-sm float-right">
+        Show Gross (Brutto)
+      </button>
     </div>
   </div>
 
   <!-- [this is input from total-cost.component] (this is Output from total-cost.component) -->
-  <cs-total-cost #totalCostRef [totalCost]="totalCost" (shownGross)="onShowGross($event)" ></cs-total-cost>
+  <cs-total-cost #totalCostRef [totalCost]="totalCost" (shownGross)="onShowGross($event)"></cs-total-cost>
 
   <div class="row" *ngIf="grossCost">
     <div class="col-sm-12">
@@ -57,3 +57,64 @@
     </div>
   </div>
 </div>
+
+
+<p class="data-header">Add new a car</p>
+
+<div class="data-container">
+  <form>
+    <div class="row form-group">
+      <div class="col-sm-4">
+        <label>Model</label>
+        <input type="text" class="form-control" placeholder="model">
+      </div>
+      <div class="col-sm-4">
+        <label>Typel</label>
+        <input type="text" class="form-control" placeholder="type">
+      </div>
+      <div class="col-sm-4">
+        <label>Plate</label>
+        <input type="text" class="form-control" placeholder="plate">
+      </div>
+      <div class="col-sm-4">
+        <label>Delivery date</label>
+        <input type="text" class="form-control" placeholder="delivery date">
+      </div>
+      <div class="col-sm-4">
+        <label>Deadline</label>
+        <input type="text" class="form-control" placeholder="deadline">
+      </div>
+      <div class="col-sm-4">
+        <label>Cost</label>
+        <input type="text" class="form-control" placeholder="cost">
+      </div>
+      <div class="col-sm-4">
+        <label>Color</label>
+        <input type="text" class="form-control" placeholder="color">
+      </div>
+      <div class="col-sm-4">
+        <label>Power</label>
+        <input type="text" class="form-control" placeholder="power">
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <label>Client First Name</label>
+        <input type="text" class="form-control" placeholder="client first name">
+      </div>
+      <div class="col-sm-4">
+        <label>Client Last Name</label>
+        <input type="text" class="form-control" placeholder="client last name">
+      </div>
+      <div class="col-sm-4">
+        <Label>Is car fully damage
+          <input type="checkbox">
+        </Label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary float-right">Add car</button>
+      </div>
+    </div>
+  </form>
