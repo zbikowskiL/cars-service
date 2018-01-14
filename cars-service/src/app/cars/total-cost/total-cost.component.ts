@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+
 
 
 
 @Component({
   selector: 'cs-total-cost',
   templateUrl: './total-cost.component.html',
-  styleUrls: ['./total-cost.component.css']
+  styleUrls: ['./total-cost.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TotalCostComponent {
   @Input() totalCost: number;

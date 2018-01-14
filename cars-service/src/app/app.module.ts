@@ -12,12 +12,14 @@ import { CoreModule } from './core-module/core.module';
 import { CarsListComponent } from './cars/cars-list/cars-list.component';
 import { AppRoutingModule } from './app-routing-module';
 import { CarsRoutingModule } from './cars/cars-routing.module';
+import { ImportantDirective } from './shared-nodule/directives/important.directive';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImportantDirective
   ],
   imports: [
     BrowserModule,

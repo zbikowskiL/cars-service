@@ -1,9 +1,11 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, NgModule } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, stopPropagation, ViewChild, AfterViewInit, NgModule } from '@angular/core';
 import { Car } from '../models/car';
 import { TotalCostComponent } from '../total-cost/total-cost.component';
 import { HeaderComponent } from '../../shared-module/header/header.component';
 import { CarsService } from '../cars.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   testCost: number;
   grossCost: number;
   cars: Car[];
-
+  carForm: FormGroup;
   // below are example cars array
   /* = [
     {
@@ -67,16 +69,51 @@ export class CarsListComponent implements OnInit, AfterViewInit {
 
 
   constructor(private carsService: CarsService,
+              private formBuilder: FormBuilder,
               private router: Router) { }
 
   ngOnInit() {
     this.loadCarsFromService();
+    this.carForm = this.buildCarForm();
+  }
+
+  buildCarForm() {
+    return this.formBuilder.group({
+      model: ['', Validators.required],
+      type: '',
+      plate: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
+      deliveryDate: '',
+      deadline: '',
+      color: '',
+      power: '',
+      // client: Client;
+      clientFirstName: '',
+      clientSurname: '',
+      cost: '',
+      isFullyDamaged: '',
+      year: ''
+    });
   }
 
   loadCarsFromService(): void {
     this.carsService.getCars().subscribe((cars) => {
       this.cars = cars;
       this.countTotalCost();
+    });
+  }
+
+  addCar() {
+    this.carsService.addCar(this.carForm.value).subscribe(() => {
+
+    });
+    this.loadCarsFromService();
+
+  }
+
+  removeCar(car: Car, event) {
+    event.stopPropagation();
+    this.carsService.removeCar(car.id).subscribe(() => {
+      this.loadCarsFromService();
     });
   }
 

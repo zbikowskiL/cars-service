@@ -8,6 +8,7 @@ import { CoreModule } from '../core-module/core.module';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { RouterModule } from '@angular/router';
 import { CarResolve } from './cars-resolve.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CarResolve } from './cars-resolve.service';
     CommonModule,
     SharedModule,
     CoreModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [CarsListComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
